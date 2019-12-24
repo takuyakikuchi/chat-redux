@@ -1,9 +1,13 @@
+const BASE_URL = 'https://wagon-chat.herokuapp.com';
+
+export const FETCH_MESSAGES = 'FETCH_MESSAGES';
+
 export function fetchMessages(channel) {
-  const promise = fetch('https://wagon-chat.herokuapp.com/general/messages')
-  .then(response => response.json());
+  const url = `${BASE_URL}/${channel}/messages`;
+  const promise = fetch(url).then(r => r.json());
 
   return {
-  type: 'FETCHED_MESSAGES',
-  payload: promise
+    type: FETCH_MESSAGES,
+    payload: promise // Will be resolved by redux-promise
   };
 }
