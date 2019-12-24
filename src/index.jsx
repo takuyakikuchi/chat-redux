@@ -13,6 +13,14 @@ const reducers = combineReducers({
   changeMe: (state = null, action) => state
 });
 
+// Initial state
+const initialState = {
+  messages: [],
+  channels: ['general', 'react', 'tokyo'],
+  selectedChannel: 'general',
+  currentUsername: prompt("What is your username?") || `anonymous${Math.floor(10 + (Math.random() * 90))}`
+};
+
 // render an instance of the component in the DOM
 ReactDOM.render(
   <Provider store={createStore(reducers)}>
