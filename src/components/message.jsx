@@ -1,8 +1,4 @@
 import React from 'react';
-// import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
-
-// import selectCity from '../actions/index';
 
 const Message = (props) => {
   return (
@@ -12,9 +8,4 @@ const Message = (props) => {
   );
 };
 
-// function mapDispatchToProps(dispatch) {
-//   return bindActionCreators({ selectCity }, dispatch);
-// }
-
-// export default connect(null, mapDispatchToProps)(City);
 export default Message;
