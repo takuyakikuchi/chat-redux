@@ -3,11 +3,24 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import Message from '../components/message';
+import MessageForm from '../containers/message_form';
 import { fetchMessages } from '../actions/index';
 
 class MessageList extends Component {
   componentWillMount() {
     this.fetchMessages();
+  }
+
+  componentDidMount() {
+    this.refresher = setInterval(this.fetchMessages, 5000);
+  }
+
+  componentDidUpdate() {
+    this.list.scrollTop = this.list.scrollHeight;
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.refresher);
   }
 
   fetchMessages = () => {
@@ -27,6 +40,7 @@ class MessageList extends Component {
             })
           }
         </div>
+        <MessageForm />
       </div>
     );
   }
