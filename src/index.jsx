@@ -12,7 +12,7 @@ import '../assets/stylesheets/application.scss';
 
 // State and Reducer
 import messagesReducer from './reducers/messages_reducer';
-// import SelectedChannelReducer from './reducers/selected_channel_reducer';
+import SelectedChannelReducer from './reducers/selected_channel_reducer';
 
 const identityReducer = (state = null) => state;
 
@@ -28,8 +28,8 @@ const initialState = {
 const reducers = combineReducers({
   messages: messagesReducer,
   channels: identityReducer,
-  currentUser: identityReducer
-  // selectedChannel: SelectedChannelReducer
+  currentUser: identityReducer,
+  selectedChannel: SelectedChannelReducer
 });
 
 const middlewares = applyMiddleware(reduxPromise, logger);
